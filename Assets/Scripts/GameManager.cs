@@ -12,9 +12,9 @@ public class GameManager : MonoBehaviour
    float rotation=100;
    bool is_powering_bomb=false;
    public GameObject enemy;
-   int enemy_count=1;
+   int enemy_count=20;
    int bomb_count=30;
-   float spacing=20 ;
+   float spacing=15 ;
    public Text text_bombs; 
    public Text text_enemies; 
     public Text text_result; 
