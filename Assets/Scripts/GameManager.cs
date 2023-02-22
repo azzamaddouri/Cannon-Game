@@ -13,7 +13,7 @@ public class GameManager : MonoBehaviour
    bool is_powering_bomb=false;
    public GameObject enemy;
    int enemy_count=20;
-   int bomb_count=30;
+   int bomb_count=15;
    float spacing=15 ;
    public Text text_bombs; 
    public Text text_enemies; 
@@ -52,7 +52,7 @@ public class GameManager : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.Space)){
             
 bomb_speed=5;
-is_powering_bomb=true; StartCoroutine(PlaySound());
+is_powering_bomb=true; 
         } 
 
         if(is_powering_bomb){
@@ -63,9 +63,10 @@ bomb_speed+=.1f;
             if(bomb_speed>50) bomb_speed=50;if(bomb_count>0){
             GameObject new_bomb=Instantiate(bomb);
             new_bomb.transform.position=cannon_arm.transform.position;
-            new_bomb.GetComponent<Rigidbody>().velocity = cannon_arm.transform.up*bomb_speed;
+            new_bomb.GetComponent<Rigidbody>().velocity = cannon_arm.transform.up*bomb_speed;StartCoroutine(PlaySound());
             bomb_count--;
             text_bombs.text=bomb_count.ToString();}
+            
             
         }
        
