@@ -18,6 +18,8 @@ public class GameManager : MonoBehaviour
    public Text text_bombs; 
    public Text text_enemies; 
     public Text text_result; 
+    public float ClipLength=1f;
+    public GameObject AudioClip;
    void Start()
     {
         //canon_arm initially set at the position of 45°
@@ -29,6 +31,7 @@ public class GameManager : MonoBehaviour
         }
         text_bombs.text= bomb_count.ToString();
         text_enemies.text=enemy_count.ToString();
+        AudioClip.SetActive(false);
 
     }
     void Update()
@@ -49,7 +52,7 @@ public class GameManager : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.Space)){
             
 bomb_speed=5;
-is_powering_bomb=true;
+is_powering_bomb=true; StartCoroutine(PlaySound());
         } 
 
         if(is_powering_bomb){
@@ -65,10 +68,16 @@ bomb_speed+=.1f;
             text_bombs.text=bomb_count.ToString();}
             
         }
+       
   
    
     }
-    
+    IEnumerator PlaySound(){
+          AudioClip.SetActive(true);
+          yield return new WaitForSeconds(ClipLength);
+          AudioClip.SetActive(false);
+            
+        }
     
      public void DestroyEnemy(){
          enemy_count--;
