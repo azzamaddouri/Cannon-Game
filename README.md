@@ -6,7 +6,12 @@
  - UpArrow : For the cannon rotation right
  - DownArrow : For the cannon rotation right
  - Space : For shooting
-# Project Video
+### Project Video
+
 Watch a demo of the Cannon-Game project on YouTube:
+
+
+
 [![Cannon-Game Demo](https://img.youtube.com/vi/is-khnIeG50/0.jpg)](https://youtu.be/is-khnIeG50)
+
 
